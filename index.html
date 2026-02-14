@@ -1,0 +1,207 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Valentine's Day❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    background: linear-gradient(to bottom, #f8d7da, #ffffff);
+    text-align:center;
+    overflow-x:hidden;
+    position:relative;
+}
+
+/* Floating Hearts */
+.heart{
+    position: fixed;
+    bottom: -10px;
+    font-size: 18px;
+    animation: floatUp 6s linear infinite;
+    opacity:0.8;
+}
+
+@keyframes floatUp{
+    0%{transform: translateY(0) scale(1);}
+    100%{transform: translateY(-100vh) scale(1.5); opacity:0;}
+}
+
+/* Header */
+.header{
+    padding:60px 20px 30px;
+}
+
+.header h1{
+    font-size:36px;
+    color:#e91e63;
+    font-weight:800;
+}
+
+.header p{
+    margin-top:15px;
+    font-size:18px;
+    color:#444;
+}
+
+/* Card Section */
+.card{
+    background:#f1f1f1;
+    margin:20px;
+    padding:30px 20px;
+    border-radius:30px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.1);
+}
+
+.card h2{
+    font-size:26px;
+    margin-bottom:15px;
+}
+
+.card p{
+    font-size:16px;
+    margin-bottom:25px;
+}
+
+/* Smaller Square Envelope */
+.envelope{
+    background:#fff;
+    width:220px;
+    height:220px;
+    padding:10px;
+    border-radius:20px;
+    position:relative;
+    margin:20px auto;
+    box-shadow:0 8px 20px rgba(0,0,0,0.1);
+    overflow:hidden;
+}
+
+/* Envelope flap */
+.envelope::before{
+    content:'';
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:45%;
+    background:#ffccd5;
+    clip-path: polygon(0 0, 50% 70%, 100% 0);
+}
+
+/* Image inside */
+.envelope img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    border-radius:15px;
+    position:relative;
+    z-index:1;
+}
+
+/* Buttons */
+button{
+    margin-top:15px;
+    padding:12px 30px;
+    border:none;
+    border-radius:50px;
+    background:#ff4d6d;
+    color:#fff;
+    font-size:15px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    background:#e63950;
+    transform:scale(1.05);
+}
+
+/* Music Button */
+.music-btn{
+    position:fixed;
+    top:20px;
+    right:20px;
+    background:#fff;
+    color:#e91e63;
+    border:2px solid #e91e63;
+    font-size:14px;
+    padding:8px 15px;
+}
+</style>
+</head>
+<body>
+
+<!-- Audio -->
+<audio id="bgMusic" loop>
+    <source src="music.mp3" type="audio/mp3">
+</audio>
+
+<button class="music-btn" onclick="toggleMusic()">🎵 Play Music</button>
+
+<div class="header">
+    <h1>HAPPY VALENTINE'S DAY MY BABY NIKKI❤️💕</h1>
+    <p>Say "I love you" in the most unique way this Valentine 💘</p>
+</div>
+
+<div class="card">
+    <h2>Let's Celebrate! 🎉</h2>
+    <p>
+Every day with you is my favorite day.  
+        You are my peace, my happiness, and my forever.  
+        I love you more than words can explain ❤️
+    </p>
+
+    <div class="envelope">
+        <img src="https://i.postimg.cc/L8GgJpfC/Messenger-creation-27FFED4D-75B6-46AA-A779-9BE367459D5E.jpg" alt="Photo 1">
+    </div>
+
+    <div class="envelope">
+        <img src="https://i.postimg.cc/k4BHfWGY/Beb.jpg" alt="Photo 2">
+    </div>
+
+    <button onclick="alert('Surprise! I love you forever ❤️💍')">
+        Click for a Surprise ✨
+    </button>
+</div>
+
+<script>
+// Floating Hearts
+function createHeart(){
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = Math.random() * 15 + 15 + "px";
+    heart.style.animationDuration = Math.random() * 3 + 3 + "s";
+    document.body.appendChild(heart);
+
+    setTimeout(() => { heart.remove(); }, 6000);
+}
+setInterval(createHeart, 600);
+
+// Music Toggle
+const music = document.getElementById("bgMusic");
+const btn = document.querySelector(".music-btn");
+
+function toggleMusic(){
+    if(music.paused){
+        music.play();
+        btn.innerHTML = "⏸ Pause Music";
+    }else{
+        music.pause();
+        btn.innerHTML = "🎵 Play Music";
+    }
+}
+</script>
+
+</body>
+</html>
